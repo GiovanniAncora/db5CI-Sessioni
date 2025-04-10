@@ -4,16 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pagina di Login</title>
+
+  <link rel="stylesheet" href="static/login.css">
 </head>
 <body>
-  <form method="post">
-    <label for="username">Inserire l'username:</label>
-    <input type="text" name="username" id="username">
+  <div class="login">
+    <h1 style="background-color: #ff7518;">Login</h1>
+    <form method="post">
+      <div class="campoUsername campoForm">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+      </div>
+  
+      <div class="campoPassword campoForm">
+        <label for="codice">Password:</label>
+        <input type="password" name="codice" id="codice">
+      </div>
 
-    <label for="codice">Inserire il codice di accesso:</label>
-    <input type="password" name="codice" id="codice">
-
-    <button type="submit">Invia il login</button>
-  </form>
+      <div class="loginSubmit">
+        <button type="submit">Invia il login</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
