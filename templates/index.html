@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel="stylesheet" href="static/style.css"> -->
+    <title>Alunni</title>
+</head>
+<body>
+    <h1 class="w3-container w3-orange w3-center">Tabella Dinamica Alunni</h1>
+    <!-- <h4 class="w3-h4 w3-orange">da Giovanni Ancora</h4> -->
+
+    <div class="w3-container w3-margin-top w3-margin-bottom w3-center">
+        <a href="{{ url_for('medie') }}"><button class="w3-btn w3-round-large w3-red">Visualizza la tabella delle medie</button></a>
+    </div>
+
+    <table class="w3-table-all w3-hoverable">
+        <thead>
+            <tr class="w3-cyan">
+                {% for campo in campi%}
+                <th>{{campo[0].upper()}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for alunno in alunni %}
+            <tr>
+                <td><a href="{{url_for('voti', studente=alunno[0])}}">{{alunno[0]}}</a></td>
+                <td>{{alunno[1]}}</td>
+                <td>{{alunno[2]}}</td>
+                <td>{{alunno[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

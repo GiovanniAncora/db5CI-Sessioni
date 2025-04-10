@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Voti</title>
+</head>
+<body>
+    <table class="w3-table-all w3-hoverable">
+        <thead>
+            <tr>
+                {% for c in campi %}
+                <th>{{c[0].upper()}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in voti %}
+            <tr>
+                <td>{{ v[0] }}</td>
+                <td>{{ v[1] }}</td>
+                <td>{{ v[2] }}</td>
+                <td>{{ v[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('index') }}"><button class="w3-xlarge w3-btn w3-ripple w3-round-large w3-margin-top">Torna alla pagina principale</button></a>
+    <a href="{{ url_for('logout') }}"><button class="w3-xlarge w3-btn w3-ripple w3-round-large w3-margin-top">Logout</button></a>
+</body>
+</html>

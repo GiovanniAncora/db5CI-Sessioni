@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Medie</title>
+</head>
+<body>
+    <h1 class="w3-container w3-orange w3-center">Medie degli alunni</h1>
+    <div class="w3-container w3-margin-top w3-margin-bottom w3-center">
+        <a href="{{ url_for('index') }}"><button class="w3-btn w3-round-large w3-red">Torna alla pagina principale</button></a>
+    </div>
+    <table class="w3-table-all w3-hoverable">
+        <thead>
+            <tr class="w3-cyan">
+                {% for c in campi %}
+                <th>{{ c[0].upper() }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in medie %}
+            <tr>
+                <td>{{ a[0] }}</td>
+                <td>{{ a[1] }}</td>
+                <td>{{ a[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
