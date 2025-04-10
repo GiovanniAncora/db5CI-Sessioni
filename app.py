@@ -39,7 +39,13 @@ def voti(studente):
             queryVoti = 'SELECT * FROM verifiche WHERE studente = %s'
             cursore.execute(queryVoti, (studente,))
             risultatoVoti = cursore.fetchall()
-            return render_template("voti.html", voti=risultatoVoti, campi= cursore.description)
+            campi = cursore.description
+
+            queryUtente = 'SELECT matricola, nome, cognome FROM alunni WHERE matricola=%s;'
+            cursore.execute(queryUtente, (studente,))
+            datiStudente = cursore.fetchall()[0]
+
+            return render_template("voti.html", voti=risultatoVoti, campi= campi, studente= datiStudente)
         else:
             print('Non hai l\'accesso a QUESTA pagina.')
             print(session['username'], matr)
