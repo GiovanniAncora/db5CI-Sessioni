@@ -7,11 +7,11 @@
     <title>Voti</title>
 </head>
 <body>
-    <h1>Verifiche svolte dallo studente #{{ studente[0] }} &lpar;{{ studente[1] }} {{ studente[2] }}&rpar;</h1>
+    <h1 class="w3-container" style="background-color: #FF7518;">Verifiche svolte dallo studente #{{ studente[0] }} &lpar;{{ studente[1] }} {{ studente[2] }}&rpar;</h1>
 
     <table class="w3-table-all w3-hoverable">
         <thead>
-            <tr>
+            <tr class="w3-cyan">
                 {% for c in campi %}
                 <th>{{c[0].upper()}}</th>
                 {% endfor %}
@@ -29,7 +29,9 @@
         </tbody>
     </table>
 
-    <a href="{{ url_for('index') }}"><button class="w3-xlarge w3-btn w3-ripple w3-round-large w3-margin-top">Torna alla pagina principale</button></a>
-    <a href="{{ url_for('logout') }}"><button class="w3-xlarge w3-btn w3-ripple w3-round-large w3-margin-top">Logout</button></a>
+    <div class="w3-flex" style="justify-content: space-around;">
+        <button type="button" class="w3-button"><a href="{{ url_for('index') }}"><button class="w3-xlarge w3-btn w3-ripple w3-round-large w3-margin-top">Torna alla pagina principale</button></a></button>
+        <button type="button" class="w3-button"><a href="{{ url_for('logout') }}"><button class="w3-xlarge w3-btn w3-ripple w3-round-large w3-margin-top">Logout</button></a></button>
+    </div>
 </body>
 </html>
