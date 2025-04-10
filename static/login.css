@@ -29,6 +29,8 @@ form {
 .login{
   box-shadow: 0px 5px 25px 10px rgba(0,0,0,0.5);
   background-color: #CA054D;
+
+  border-radius: 10px;
 }
 
 .login h1{
@@ -52,4 +54,16 @@ form {
 
 .loginSubmit {
   align-self: center;
+}
+
+.altriLink {
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.altriLink button * {
+  color: black;
+  font-style: normal;
+  text-decoration: none;
 }
