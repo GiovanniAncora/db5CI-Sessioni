@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <title>Registrazione</title>
 </head>
-<body>
-  <h1>Registrati</h1>
-  <h2>Benvenuto!</h2>
+<body style="background-color: aliceblue;">
+  <h1 class="w3-container w3-flex" style="background-color: #FF7518; justify-content: center;">Registrati</h1>
+  <h2 class="w3-container w3-flex" style="background-color: #fca163; justify-content: center;">Benvenuto!</h2>
 
-  <form method="post">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username">
-
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-
-    <label for="matricola">Matricola:</label>
-    <input type="number" name="matricola" id="matricola">
-
-    <button type="submit">Registrati</button>
-  </form>
+  <div class="w3-panel">
+    <form method="post" class="w3-flex" style="flex-direction: column; justify-content: space-around;">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username">
+  
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password">
+  
+      <label for="matricola">Matricola:</label>
+      <input type="number" name="matricola" id="matricola">
+  
+      <button type="submit" class="w3-panel w3-btn">Registrati</button>
+    </form>
+    <div class="w3-flex" style="text-decoration: none; justify-content: center;">
+      <button type="button" class="w3-btn"><a href="{{url_for('index')}}">Home Page</a></button>
+      <button type="button" class="w3-btn"><a href="{{url_for('login')}}">Login</a></button>
+    </div>
+  </div>
 </body>
 </html>
