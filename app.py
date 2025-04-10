@@ -1,11 +1,17 @@
 import pymysql.cursors
 from flask import Flask, render_template, session, request, redirect, url_for
 
-conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='24082006', database='db5CI')
+conn = pymysql.connect(host='138.41.20.102', port=53306, user='ospite', password='ospite', database='db5CI')
 cursore = conn.cursor()
 
 # cursore.execute('SHOW COLUMNS FROM verifiche;')
 # print(cursore.fetchall())
+
+# SCHEMA LOGICO TABELLE
+# Alunni(matricola, nome, cognome, datan)
+# Verifiche(disciplina, data, voto, studente)
+# Utenti(username, password, matricola)
+
 
 app = Flask(__name__)
 
@@ -14,7 +20,7 @@ app.secret_key = 'provola1234'
 
 @app.route('/')
 def index():
-    query = 'SELECT matricola, nome, cognome, data_nascita FROM alunni'
+    query = 'SELECT matricola, cognome, nome, datan FROM alunni'
     cursore.execute(query)
     risultato = cursore.fetchall()
     return render_template('index.html', alunni= risultato, campi= cursore.description)
@@ -24,7 +30,7 @@ def voti(studente):
     if 'username' in session:
         print(studente)
 
-        queryControlloMatr = "SELECT matr FROM utenti WHERE username = %s;"
+        queryControlloMatr = "SELECT matricola FROM utenti WHERE username = %s;"
         cursore.execute(queryControlloMatr, (session['username'],))
         matr = str(cursore.fetchall()[0][0])
 
